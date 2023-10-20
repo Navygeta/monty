@@ -30,3 +30,32 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 	free(top);
 }
 
+/**
+ * sub_opcode - Opcode Subtraction
+ * @top: Pointer to top of stack
+ * @counter: Line number
+ * Return: Void
+ */
+void sub_opcode(stack_t **top, unsigned int line_number)
+{
+	stack_t *temp;
+	int result, nodes;
+
+	temp = *top;
+
+	for (nodes = 0; temp != NULL; nodes++)
+		temp = temp->next;
+
+	if (nodes < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		handle_exit_error(top);
+	}
+
+	temp = *top;
+	result = temp->next->n - temp->n;
+	temp->next->n = result;
+	*top = temp->next;
+	free(temp);
+}
+
