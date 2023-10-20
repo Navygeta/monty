@@ -16,7 +16,7 @@ int opcod_exec(char *input, stack_t **stack, unsigned int lineNum, FILE *file)
 				{"pint", print_top}, {"pop", opcode_pop},
 				{"swap", opcode_swap}, {"nop", no_operation},
 				{"add", add_opcode}, {"sub", sub_opcode},
-				{"div", div_opcode},
+				{"div", div_opcode}, {"mod", mod_opcode},
 				{NULL, NULL}
 				};
 

@@ -125,3 +125,39 @@ void mul_opcode(stack_t **top, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * mod_opcode - calculates the modulus
+ * @top: Pointer to top of Stack
+ * @line_number: Unsigned int representing line number
+ * Return: Void
+ */
+void mod_opcode(stack_t **top, unsigned int line_number)
+{
+	stack_t *temp;
+	int nodes, result;
+
+	temp = *top;
+
+	for (nodes = 0; temp != NULL; nodes++)
+		temp = temp->next;
+
+	if (nodes < 2)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		handle_exit_error(top);
+	}
+
+	temp = *top;
+
+	if (temp->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		handle_exit_error(top);
+	}
+
+	result = temp->next->n % temp->n;
+	temp->next->n = result;
+	*top = temp->next;
+	free(temp);
+}
+
