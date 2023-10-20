@@ -95,3 +95,33 @@ void div_opcode(stack_t **top, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * mul_opcode - Multiplies the top two elements of the stack.
+ * @top: Pointer to top of Stack
+ * @line_number: Unsigned int representing Line number
+ * Return: Void
+ */
+void mul_opcode(stack_t **top, unsigned int line_number)
+{
+	stack_t *temp;
+	int nodes, result;
+
+	temp = *top;
+
+	for (nodes = 0; temp != NULL; nodes++)
+		temp = temp->next;
+
+	if (nodes < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		handle_exit_error(top);
+	}
+
+	temp = *top;
+
+	result = temp->next->n * temp->n;
+	temp->next->n = result;
+	*top = temp->next;
+	free(temp);
+}
+
