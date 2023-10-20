@@ -13,7 +13,7 @@ void push_element(stack_t **stack, unsigned int line_number)
 	if (nu_nod == NULL)
 	{
 		perror("Error: Memory allocation failed\n");
-		handle_exit_error();
+		handle_exit_error(stack);
 	}
 
 	nu_nod->n = atoi(global_context.arg);

@@ -14,7 +14,7 @@ int opcod_exec(char *input, stack_t **stack, unsigned int lineNum, FILE *file)
 	instruction_t op_dict[] = {
 				{"push", push_element}, {"pall", traverse_pall},
 				{"pint", print_top}, {"pop", opcode_pop},
-				/*{"swap", opcode_swap},*/ {"nop", no_operation},
+				{"swap", opcode_swap}, {"nop", no_operation},
 				{NULL, NULL}
 				};
 

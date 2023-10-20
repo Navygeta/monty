@@ -19,7 +19,7 @@ void opcode_swap(stack_t **top, unsigned int line_number)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		handle_exit_error();
+		handle_exit_error(top);
 	}
 
 	top_element = *top;
