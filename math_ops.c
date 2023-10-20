@@ -33,7 +33,7 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 /**
  * sub_opcode - Opcode Subtraction
  * @top: Pointer to top of stack
- * @counter: Line number
+ * @line_number: unsigned int representing line number
  * Return: Void
  */
 void sub_opcode(stack_t **top, unsigned int line_number)
