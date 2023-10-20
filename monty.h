@@ -71,6 +71,7 @@ int interpret_monty(int argc, char *argv[]);
 void handle_exit_error();
 FILE *open_monty_file(const char *filename);
 void usage_err();
+void add_opcode(stack_t **stack, unsigned int line_number);
 
 
 #endif
